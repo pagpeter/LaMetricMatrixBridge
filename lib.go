@@ -52,7 +52,10 @@ func (l *LaMetric) GetState() (DeviceState, error) {
 }
 
 func (l *LaMetric) SendNotification(n Notification) (string, error) {
-	json, _ := json.Marshal(n)
+	json, err := json.Marshal(n)
+	if err != nil {
+		return "", err
+	}
 	return l.MakeRequest("POST", "device/notifications", json)
 }
 

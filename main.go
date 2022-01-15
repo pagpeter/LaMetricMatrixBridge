@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"maunium.net/go/mautrix"
 )
@@ -9,9 +10,21 @@ import (
 func main() {
 	var c Config
 	c.getConf()
+	// fmt.Println(c)
+	if c.Blacklist.Active && c.Whitelist.Active {
+		log.Fatal("Only one of blacklist or whitelist can be active")
+	}
 
 	log.Println("Getting IP")
 	IP := GetIPAddress()
+	if IP == "" {
+		log.Println("Could not get IP, trying again in 5 seconds")
+		time.Sleep(time.Second * 5)
+		IP = GetIPAddress()
+		if IP == "" {
+			log.Fatal("Could not get IP")
+		}
+	}
 	log.Println("IP of the LaMetic Time:", IP)
 
 	l := LaMetric{

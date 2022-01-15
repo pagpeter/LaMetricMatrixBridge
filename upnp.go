@@ -12,7 +12,7 @@ import (
 
 func handle(err error) {
 	if err != nil {
-		log.Fatalf(err)
+		log.Fatalf(err.Error())
 	}
 }
 
@@ -76,7 +76,7 @@ func getAllDevices() []string {
 			}
 		}
 	}()
-	time.Sleep(2 * time.Second)
+	time.Sleep(4 * time.Second)
 	conn.Close()
 	return removeDuplicateStr(locations)
 

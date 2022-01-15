@@ -3,3 +3,16 @@ api_key: <API_KEY> # API key of your LametricTime
 homeserver: "<Homeserver>" # full homeserver address
 username: "<MXID>" # full username, including :matrix.org or whatever server youre using
 password: "<Password>" # password of your account
+
+# you can only active either one of the following, or none of them
+whitelist: 
+  active: false # if true, only messages from whitelisted rooms will be shown
+  rooms:
+    - "!<ROOM_ID>:matrix.org" # room ID of the room you want to whitelist
+    - "!<ROOM_ID>:matrix.org" 
+
+blacklist:
+  active: false # if true, messages from blacklisted rooms will be hidden
+  rooms:
+    - "!<ROOM_ID>:matrix.org" # room ID of the room you want to blacklist
+    - "!<ROOM_ID>:matrix.org"
