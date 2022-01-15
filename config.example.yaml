@@ -1,0 +1,5 @@
+api_key: <API_KEY> # API key of your LametricTime
+
+homeserver: "<Homeserver>" # full homeserver address
+username: "<MXID>" # full username, including :matrix.org or whatever server youre using
+password: "<Password>" # password of your account
